@@ -6,7 +6,7 @@ import (
 
 func main() {
 
-	input := []int{1, 2, 4, 3}
+	input := []int{1, 2, 3, 1}
 	output := robHouses(input)
 
 	fmt.Println("Output:", output)
@@ -30,7 +30,11 @@ func robHouses(houses []int) int {
 	tempArray[1] = getMax(houses[0], houses[1])
 
 	for i := 2; i < len(houses); i++ {
-		tempArray[i] = getMax(houses[i]+tempArray[i-2], tempArray[i-1])
+		if !(i == len(houses)-1) {
+			tempArray[i] = getMax(houses[i]+tempArray[i-2], tempArray[i-1])
+		} else {
+			tempArray[i] = tempArray[i-1]
+		}
 	}
 
 	return tempArray[len(houses)-1]
