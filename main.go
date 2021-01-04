@@ -6,7 +6,7 @@ import (
 
 func main() {
 
-	input := []int{1, 2}
+	input := []int{1, 2, 4, 3}
 	output := robHouses(input)
 
 	fmt.Println("Output:", output)
